@@ -11,20 +11,22 @@ function App() {
   return (
     <div>
       <ReactKeycloakProvider authClient={keycloak}>
-        <Nav />
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<HomePage />} />
-            <Route
-              path="/secured"
-              element={
-                <PrivateRoute>
-                  <SecuredPage />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </BrowserRouter>
+        <React.StrictMode>
+          <Nav />
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route
+                path="/secured"
+                element={
+                  <PrivateRoute>
+                    <SecuredPage />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </React.StrictMode>
       </ReactKeycloakProvider>
     </div>
   );
